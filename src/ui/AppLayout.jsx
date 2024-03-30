@@ -1,49 +1,122 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-
-import { GoHomeFill } from "react-icons/go";
-import { AiFillProject } from "react-icons/ai";
-
-import { IoCreate } from "react-icons/io5";
-
-import { FaUser } from "react-icons/fa";
-import Accordion from "./Accordion";
 import Header from "./Header";
 import SideBar from "./SideBar";
 function AppLayout() {
   const [accordion, setAccordion] = useState([
     {
       key: 1,
-      icon: <GoHomeFill />,
-      title: "داشبورد",
-      link:'/owner',
-      data: ``,
+      title: "Category",
+      subMenu: [
+        {
+          id: 1,
+          title: "Cleanser",
+          checked: false,
+        },
+        {
+          id: 2,
+          title: "Toner",
+          checked: false,
+        },
+        {
+          id: 3,
+          title: "Serum",
+          checked: false,
+        },
+        {
+          id: 4,
+          title: "Moisturize",
+          checked: true,
+        },
+        {
+          id: 5,
+          title: "Face mask",
+          checked: false,
+        },
+      ],
       isOpen: false,
     },
     {
       key: 2,
-      icon: <AiFillProject/> ,
-      link:'/owner/projects',
-      title: "لیست پروژه ها",
-      data: "",
+      title: "Price",
+      subMenu: [
+        {
+          id: 1,
+          title: "Hight to Low",
+          checked: true,
+        },
+        {
+          id: 2,
+          title: "Low to Hight",
+          checked: false,
+        },
+      ],
       isOpen: false,
     },
+
     {
-        key: 3,
-        icon:<IoCreate/>,
-        title:'ایجاد پروژه جدید',
-        link:'',
-        data:'',
-        isOpen:'false'
+      key: 3,
+      title: "Location",
+      subMenu: [
+        {
+          id: 1,
+          title: "Nearest",
+          checked: false,
+        },
+        {
+          id: 2,
+          title: "Farthest",
+          checked: false,
+        },
+      ],
+      isOpen: false,
     },
+
     {
-        key: 4,
-        icon: <FaUser/>,
-        title: 'اطلاعات کاربری',
-        link:'',
-        data:'',
-        isOpen: false
-    }
+      key: 4,
+      title: "Rating",
+      subMenu: [
+        {
+          id: 1,
+          title: "Highest",
+          checked: true,
+        },
+        {
+          id: 2,
+          title: "Lowest",
+          checked: false,
+        },
+      ],
+      isOpen: false,
+    },
+
+    {
+      key: 5,
+      title: "Shipping",
+      subMenu: [
+        {
+          id: 1,
+          title: "Regular",
+          checked: false,
+        },
+        {
+          id: 2,
+          title: "Next day",
+          checked: false,
+        },
+        {
+          id: 3,
+          title: "Same day",
+          checked: false,
+        },
+        {
+          id: 4,
+          title: "Instant",
+          checked: true,
+        },
+      ],
+      isOpen: false,
+    },
   ]);
   const toggleAccordion = (accordionkey) => {
     const updatedAccordions = accordion.map((accord) => {
@@ -58,11 +131,8 @@ function AppLayout() {
   };
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] grid-cols-[15rem_1fr]">
-     <Header/>
-
-    <SideBar accordion = {accordion} toggleAccordion={toggleAccordion}/>
-
-
+      <Header/>
+      <SideBar accordion={accordion} toggleAccordion={toggleAccordion} />
       <div className="overflow-y-auto">
         <div className="mx-auto max-w-screen-lg mt-4">
           <Outlet />

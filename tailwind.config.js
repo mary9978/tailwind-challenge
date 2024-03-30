@@ -17,8 +17,7 @@ export default {
   ],
   theme: {
     fontFamily:{
-      "vazir":["vazir",...fontFamily.sans],
-      "PlusJakartaSans":["PlusJakartaSans",...fontFamily.sans]
+      "Nunito":["Nunito",...fontFamily.sans]
     },
   
     extend: {
@@ -54,6 +53,7 @@ export default {
         success: withOpacity("--color-success"),
         warning: withOpacity("--color-warning"),
         error: withOpacity("--color-error"),
+        dark :'#202124'
       },
       backgroundImage:{
         'bg-four-o-four':'url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif")'

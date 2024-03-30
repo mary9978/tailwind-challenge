@@ -1,24 +1,47 @@
-import React from 'react'
-import Accordion from './Accordion';
-function SideBar({accordion,toggleAccordion}) {
+import React from "react";
+import { IoIosArrowDown } from "react-icons/io";
+function SideBar({ accordion, toggleAccordion }) {
   return (
-    <div className=" row-start-1 row-span-2 border-e border-gray-200">
-    <h2 className="text-3xl mt-8 text-center">داشبورد</h2>
-    {accordion.map((a) => {
-      return (
-        <Accordion
-          key={a.key}
-          title={a.title}
-          data={a.data}
-          icon = {a.icon}
-          isOpen={a.isOpen}
-          path={a.link}
-          toggleAccordion={() => toggleAccordion(a.key)}
-        />
-      );
-    })}
-  </div>
-  )
+    <aside className="sidebar__style">
+      <div className="sidebar__list">
+        {
+          accordion.map(item =>{
+            return(
+              <ul key={item.key}>
+              <li>
+                  <button
+                    type="button"
+                    className="flex items-center w-full py-2 text-normal text-Nunito font-bold text-[#A8A9A9] transition duration-75" > 
+                    <span className="flex-1 text-left rtl:text-right whitespace-nowrap">
+                      {item.title}
+                    </span>
+                    <IoIosArrowDown />
+                  </button>
+                  <ul className="submenu">
+                    {
+                      item.subMenu.map(sub => {
+                        return(
+                          <li key={sub.id} className="flex items-center">
+                          <input type="checkbox" className="checkBox" checked={sub.checked}/>
+                          <p
+                            className="flex items-center w-full text-sm text-Nunito font-normal p-2 text-[#5C5D60] transition duration-75"
+                          >
+                           {sub.title}
+                          </p>
+                        </li>
+                        )
+                      })
+                    }
+                          
+                  </ul>
+              </li>
+              </ul>
+            )
+          })
+        }
+      </div>
+    </aside>
+  );
 }
 
-export default SideBar
+export default SideBar;
