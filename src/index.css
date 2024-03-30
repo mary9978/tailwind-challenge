@@ -38,10 +38,13 @@
     @apply bg-[#35363A] border-[#3B3C40] rounded-sm;
   }
   .sidebar__style{
-    @apply fixed top-0 left-0 z-40 w-48 h-screen transition-transform  -translate-x-full sm:translate-x-0 ;
+    @apply fixed top-[4rem] left-0 z-40 w-48 h-screen transition-transform  -translate-x-full sm:translate-x-0 ;
   }
   .sidebar__list{
     @apply h-full px-3 py-4 overflow-y-auto bg-dark border-r border-gray-100;
+  }
+  .nav__style{
+    @apply flex h-16 bg-[#202124] basis-full justify-between items-center px-4;
   }
 }
 

@@ -130,7 +130,8 @@ function AppLayout() {
     setAccordion(updatedAccordions);
   };
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr] grid-cols-[15rem_1fr]">
+    // grid-rows-[auto_1fr] grid-cols-[15rem_1fr]
+    <div className="grid h-screen ">
       <Header/>
       <SideBar accordion={accordion} toggleAccordion={toggleAccordion} />
       <div className="overflow-y-auto">

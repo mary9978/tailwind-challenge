@@ -6,7 +6,7 @@ import Home from './pages/Home';
 function App() {
   return (
   
-      <div className="container xl:max-w-screen-xl"> 
+      <div className="container-fluid"> 
       <Toaster/>
         <Routes>
           <Route path='/' element={<Home/>}/>
